@@ -31,11 +31,6 @@ alias lsg='ll | grep'
 alias ae='vi $yadr/zsh/aliases.zsh' #alias edit
 alias ar='source $yadr/zsh/aliases.zsh'  #alias reload
 
-# vim using
-if [ "$(command -v brew)" ]; then
-  alias vim=$(brew ls macvim | grep Contents/MacOS/Vim)
-fi
-
 # vimrc editing
 alias ve='vi ~/.vimrc'
 
@@ -151,3 +146,16 @@ alias rs='rspec spec'
 alias sp='sprintly'
 # spb = sprintly branch - create a branch automatically based on the bug you're working on
 alias spb="git checkout -b \`sp | tail -2 | grep '#' | sed 's/^ //' | sed 's/[^A-Za-z0-9 ]//g' | sed 's/ /-/g' | cut -d"-" -f1,2,3,4,5\`"
+
+alias ls='ls -G'
+alias ll='ls -lh'
+alias duc='du --max-depth=1 -h'
+alias se='sudo vim'
+alias rm='rm -rv'
+alias cp='cp -rv'
+alias mv='mv -v'
+alias mkdir='mkdir -p'
+alias vi='vim'
+alias psg="ps aux | egrep -i --color"
+alias stt='open -a Sublime\ Text\ 2 ./'
+alias st='open -a Sublime\ Text\ 2'
