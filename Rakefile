@@ -19,6 +19,7 @@ task :install => [:submodule_init, :submodules] do
   file_operation(Dir.glob('tmux/*')) if want_to_install?('tmux config')
   file_operation(Dir.glob('vimify/*')) if want_to_install?('vimification of command line tools')
   file_operation(Dir.glob('{vim,vimrc}')) if want_to_install?('vim configuration (highly recommended)')
+  file_operation(Dir.glob('screenrc')) if want_to_install?('screen configuration')
 
   Rake::Task["install_prezto"].execute
 
