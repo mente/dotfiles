@@ -150,7 +150,7 @@ alias spb="git checkout -b \`sp | tail -2 | grep '#' | sed 's/^ //' | sed 's/[^A
 alias ls='ls -G'
 alias ll='ls -lh'
 alias duc='du --max-depth=1 -h'
-alias se='sudo vim'
+alias se='sudo -H vim'
 alias rm='rm -rv'
 alias cp='cp -rv'
 alias mv='mv -v'
