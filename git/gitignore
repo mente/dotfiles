@@ -30,3 +30,7 @@ Session.vim
 # SASS
 # ----------------------------------------------------------------------------------------------
 .sass-cache
+
+#Sublime Text 2 sftp plugin config
+sftp-config.json
+.idea
