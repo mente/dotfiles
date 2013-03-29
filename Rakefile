@@ -24,6 +24,8 @@ task :install => [:submodule_init, :submodules] do
 
   install_fonts if RUBY_PLATFORM.downcase.include?("darwin")
 
+  install_term_theme if RUBY_PLATFORM.downcase.include?("darwin")
+
   success_msg("installed")
 end
 
@@ -80,11 +82,15 @@ def install_rvm_binstubs
 end
 
 def install_homebrew
-  puts "======================================================"
-  puts "Installing Homebrew, the OSX package manager...If it's"
-  puts "already installed, this will do nothing."
-  puts "======================================================"
-  run %{ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"}
+  run %{which brew}
+  unless $?.success?
+    puts "======================================================"
+    puts "Installing Homebrew, the OSX package manager...If it's"
+    puts "already installed, this will do nothing."
+    puts "======================================================"
+    run %{ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"}
+  end
+
   puts
   puts
   puts "======================================================"
@@ -101,6 +107,22 @@ def install_fonts
   puts "======================================================"
   run %{ cp -f $HOME/.yadr/fonts/* $HOME/Library/Fonts }
   puts
+end
+
+def install_term_theme
+  puts "======================================================"
+  puts "Installing iTerm2 solarized theme."
+  puts "======================================================"
+  run %{ /usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Solarized Light' dict" ~/Library/Preferences/com.googlecode.iterm2.plist }
+  run %{ /usr/libexec/PlistBuddy -c "Merge 'iTerm2/Solarized Light.itermcolors' :'Custom Color Presets':'Solarized Light'" ~/Library/Preferences/com.googlecode.iterm2.plist }
+  run %{ /usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Solarized Dark' dict" ~/Library/Preferences/com.googlecode.iterm2.plist }
+  run %{ /usr/libexec/PlistBuddy -c "Merge 'iTerm2/Solarized Dark.itermcolors' :'Custom Color Presets':'Solarized Dark'" ~/Library/Preferences/com.googlecode.iterm2.plist }
+
+  puts "======================================================"
+  puts "To make sure your profile is using the solarized theme"
+  puts "Please check your settings under:"
+  puts "Preferences> Profiles> [your profile]> Colors> Load Preset.."
+  puts "======================================================"
 end
 
 def install_prezto
@@ -124,8 +146,12 @@ def install_prezto
   run %{ mkdir -p $HOME/.zsh.after }
   run %{ mkdir -p $HOME/.zsh.prompts }
 
-  puts "Setting zsh as your default shell"
-  run %{ chsh -s /bin/zsh }
+  if ENV["SHELL"].include? 'zsh' then
+    puts "Zsh is already configured as your shell of choice. Restart your session to load the new settings"
+  else
+    puts "Setting zsh as your default shell"
+    run %{ chsh -s /bin/zsh }
+  end
 end
 
 def want_to_install? (section)
@@ -147,7 +173,7 @@ def file_operation(files, method = :symlink)
     puts "Source: #{source}"
     puts "Target: #{target}"
 
-    if File.exists?(target) || File.symlink?(target)
+    if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
       puts "[Overwriting] #{target}...leaving original at #{target}.backup..."
       run %{ mv "$HOME/.#{file}" "$HOME/.#{file}.backup" }
     end

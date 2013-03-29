@@ -50,6 +50,15 @@ cd ~/.yadr && rake install
 **Note:** YADR will automatically install all of its subcomponents. If you want to be asked
 about each one, use `ASK=true rake install`
 
+# Additional Installation
+
+ * [Highly recommended: Install iTerm theme](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized)
+ * [Highly recommended: Remap caps-lock to escape with PCKeyboardHack](http://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html)
+
+The escape key is the single most used key in vim.
+Old keyboards used to have Ctrl where caps lock is today. But it's even better if you put escape there.
+If you're hitting a small target in the corner, you are slowing yourself down considerably, and probably damaging your hands with repetitive strain injuries.
+
 ### Upgrading
 
 Upgrading is easy.
@@ -63,14 +72,6 @@ rake update
 # What's included, and how to customize?
 
 Read on to learn what YADR provides!
-
-### Public service announcement: stop abusing your hands!
-
-[Remap caps-lock to escape with PCKeyboardHack](http://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html)
-
-The escape key is the single most used key in vim.
-Old keyboards used to have Ctrl where caps lock is today. But it's even better if you put escape there.
-If you're hitting a small target in the corner, you are slowing yourself down considerably, and probably damaging your hands with repetitive strain injuries.
 
 ### [Homebrew](http://mxcl.github.com/homebrew/)
 
@@ -156,20 +157,11 @@ as an actual debugger on MRI 1.9.2+ by installing [pry-debugger](https://github.
 
 [Learn more about YADR's pry customizations and how to install](https://github.com/skwp/dotfiles/blob/master/README-pry.md)
 
-### Git User Info
+### Git Configuration
 
-Since the gitconfig doesn't contain the user info, I recommend using env variables. Put the following in
-your `~/.secrets` file which is automatically referenced by the provided zshrc:
+You can customize the standard Git configuration in `~/.gitconfig.user`. Any configuration in this file will override the default configuration.
 
-    # Set your git user info
-    export GIT_AUTHOR_NAME='Your Name'
-    export GIT_AUTHOR_EMAIL='you@domain.com'
-    export GIT_COMMITTER_NAME='Your Name'
-    export GIT_COMMITTER_EMAIL='you@domain.com'
-
-    # Optionally, set your GitHub credentials
-    export GITHUB_USER='your_user_name'
-    export GITHUB_TOKEN='your_github_token'
+It is recommended to use this file to set your user info. Alternately, you can set the appropriate environment variables in your `~/.secrets`.
 
 ### Git Customizations:
 
@@ -426,7 +418,6 @@ If you omit the key combo, you'll get a list of all the maps. You can do the sam
 
 #### General enhancements that don't add new commands
 
- * Arpeggio - allows you to define key-chord combinations
  * IndexedSearch - when you do searches will show you "Match 2 of 4" in the status line
  * delimitMate - automatically closes quotes
  * SearchComplete - tab completion in the / search window

@@ -86,10 +86,6 @@
   path = vim/bundle/vim-scripts-matchit.zip
   url = https://github.com/vim-scripts/matchit.zip.git
   ignore = dirty
-[submodule "vim/bundle/skwp-vim-indexed-search"]
-  path = vim/bundle/skwp-vim-indexed-search
-  url = https://github.com/skwp/vim-indexed-search
-  ignore = dirty
 [submodule "vim/bundle/tpope-vim-endwise"]
   path = vim/bundle/tpope-vim-endwise
   url = https://github.com/tpope/vim-endwise.git
@@ -109,10 +105,6 @@
 [submodule "vim/bundle/tpope-vim-pathogen"]
   path = vim/bundle/tpope-vim-pathogen
   url = https://github.com/tpope/vim-pathogen
-  ignore = dirty
-[submodule "vim/bundle/drewolson-ruby_focused_unit_test_vim"]
-  path = vim/bundle/drewolson-ruby_focused_unit_test_vim
-  url = https://github.com/drewolson/ruby_focused_unit_test_vim
   ignore = dirty
 [submodule "vim/bundle/tpope-vim-fugitive"]
   path = vim/bundle/tpope-vim-fugitive
@@ -145,10 +137,6 @@
 [submodule "vim/bundle/mileszs-ack"]
   path = vim/bundle/mileszs-ack
   url = https://github.com/mileszs/ack.vim
-  ignore = dirty
-[submodule "vim/bundle/mattn-zencoding-vim"]
-  path = vim/bundle/mattn-zencoding-vim
-  url = https://github.com/mattn/zencoding-vim
   ignore = dirty
 [submodule "vim/bundle/nelstrom-vim-textobj-rubyblock"]
   path = vim/bundle/nelstrom-vim-textobj-rubyblock
@@ -229,10 +217,6 @@
 [submodule "vim/bundle/joestelmach-javaScriptLint"]
   path = vim/bundle/joestelmach-javaScriptLint
   url = https://github.com/joestelmach/javaScriptLint.vim
-  ignore = dirty
-[submodule "vim/bundle/kana-vim-arpeggio"]
-  path = vim/bundle/kana-vim-arpeggio
-  url = https://github.com/kana/vim-arpeggio
   ignore = dirty
 [submodule "vim/bundle/chrisbra-color_highlight"]
   path = vim/bundle/chrisbra-color_highlight
@@ -357,9 +341,18 @@
 [submodule "vim/bundle/jelera-vim-javascript-syntax"]
 	path = vim/bundle/jelera-vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+  ignore = dirty
 [submodule "vim/bundle/itspriddle-vim-jquery"]
 	path = vim/bundle/itspriddle-vim-jquery
 	url = https://github.com/itspriddle/vim-jquery.git
+  ignore = dirty
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
 	url = https://github.com/slim-template/vim-slim.git
+  ignore = dirty
+[submodule "vim/bundle/airblade-vim-gitgutter"]
+	path = vim/bundle/airblade-vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/bundle/bogado-file-line"]
+	path = vim/bundle/bogado-file-line
+	url = https://github.com/bogado/file-line.git
