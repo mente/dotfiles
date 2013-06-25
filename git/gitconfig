@@ -102,7 +102,7 @@
   # the usual default is to push all branches
   default = tracking
 [core]
-  autocrlf = false
+	autocrlf = input
   editor = vim
   excludesfile = ~/.yadr/git/gitignore
 [advice]
