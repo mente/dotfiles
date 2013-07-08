@@ -127,10 +127,6 @@ nnoremap ,gcf :call GitGrep(expand("%:t:r"))<CR>
 nnoremap <silent> ,z :bp<CR>
 nnoremap <silent> ,x :bn<CR>
 
-" Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
-
 " ==============================
 " Window/Tab/Split Manipulation
 " ==============================
@@ -194,10 +190,6 @@ nmap <silent> ,vr :so %<CR>
 
 " Type ,hl to toggle highlighting on/off, and show current value.
 noremap ,hl :set hlsearch! hlsearch?<CR>
-
-" Apple-* Highlight all occurrences of current word (like '*' but without moving)
-" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
-nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " These are very similar keys. Typing 'a will jump to the line in the current
 " file marked with ma. However, `a will jump to the line and column marked
