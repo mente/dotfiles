@@ -22,7 +22,8 @@ alias cdb='cd -'
 alias df='df -h'
 alias ll='ls -alGh'
 alias ls='ls -Gh'
-alias du='du -h -d 2'
+#Not available on Linux machines
+#alias du='du -h -d 2'
 
 # show me files matching "ls grep"
 alias lsg='ll | grep'
