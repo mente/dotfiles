@@ -157,5 +157,5 @@ alias mv='mv -v'
 alias mkdir='mkdir -p'
 alias vi='vim'
 alias psg="ps aux | egrep -i --color"
-alias stt='open -a PhpStorm ./'
-alias st='open -a PhpStorm'
+alias psm='open -a PhpStorm ./'
+alias stt='open -a Sublime\ Text\ 2 ./'

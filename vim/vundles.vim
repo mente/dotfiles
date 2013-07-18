@@ -86,6 +86,7 @@ Bundle "mattn/webapi-vim.git"
 Bundle "astashov/vim-ruby-debugger"
 Bundle "aaronjensen/vim-sass-status.git"
 Bundle "skwp/vim-powerline.git"
+"Bundle 'bling/vim-airline'
 Bundle "briancollins/vim-jst"
 Bundle "pangloss/vim-javascript"
 Bundle "skwp/YankRing.vim"
@@ -101,5 +102,6 @@ Bundle "airblade/vim-gitgutter.git"
 Bundle "bogado/file-line.git"
 Bundle "tpope/vim-rvm.git"
 Bundle "nelstrom/vim-visual-star-search"
+Bundle "nginx.vim"
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
