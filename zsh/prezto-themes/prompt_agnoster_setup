@@ -124,8 +124,6 @@ build_prompt_old() {
 build_prompt() {
   RETVAL=$?
   prompt_status
-  prompt_time
-  prompt_hostname
   prompt_dir
   prompt_git
   prompt_end
