@@ -151,7 +151,11 @@ alias spb="git checkout -b \`sp | tail -2 | grep '#' | sed 's/^ //' | sed 's/[^A
 
 alias ls='ls -G'
 alias ll='ls -lh'
-alias duc='du --max-depth=1 -h'
+if [ `uname` = "Darwin" ]; then
+  alias duc='du -d 1 -h'
+else
+  alias duc='du --max-depth=1 -h'
+fi
 alias se='sudo -H vim'
 alias rmr='rm -rv'
 alias cp='cp -rv'
