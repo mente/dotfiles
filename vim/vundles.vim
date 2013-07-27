@@ -125,7 +125,10 @@ Bundle "slim-template/vim-slim.git"
 Bundle "bogado/file-line.git"
 Bundle "tpope/vim-rvm.git"
 Bundle "nelstrom/vim-visual-star-search"
+
+" Customization
 Bundle "vim-scripts/nginx.vim"
+" Bundle "vim-scripts/groovy.vim"
 
 " Customization
 " The plugins listed in ~/.vim/.vundles.local will be added here to
