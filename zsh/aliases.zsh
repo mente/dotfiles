@@ -165,3 +165,4 @@ alias vi='vim'
 alias psg="ps aux | egrep -i --color"
 alias psm='open -a PhpStorm ./'
 alias stt='open -a Sublime\ Text\ 2 ./'
+alias grd='gradle --daemon'
