@@ -166,3 +166,4 @@ alias psg="ps aux | egrep -i --color"
 alias psm='open -a PhpStorm ./'
 alias stt='open -a Sublime\ Text\ 2 ./'
 alias grd='gradle --daemon'
+alias idea='open -a IntelliJ\ IDEA\ 12'
