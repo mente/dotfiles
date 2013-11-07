@@ -26,13 +26,13 @@ from scouring other people's dotfile repos, blogs, and projects.
   * Easy to use plugin architecture, no config files to edit.
   * Pick one tool and use it everywhere: vim-ize everything
   * Beautiful, easy to read and small vimrc**
-  * No key overrides or custom hackery in vimrc, everything in well factored snippets in .vim/plugin/settings**
+  * No key overrides or custom hackery in vimrc, everything in well factored snippets in .vim/settings**
   * Much larger list of vim plugins than Janus, specifically geared to Ruby/Rails/Git development.
   * Optimized support for Solarized color scheme only, everything guaranteed to Look Good. Your eyes will thank you.
   * All plugins tested with Solarized and custom color maps provided where needed to ensure your eyes will not bleed.
   * No configuration file to maintain. YADR uses tiny ruby scripts to wrap git submodule maintenance.
   * Much cleaner vimrc that keps keymaps isolated to a plugin file (not in the main vimrc).
-  * All keymaps and customization in small, easy to maintain files under .vim/plugin/settings
+  * All keymaps and customization in small, easy to maintain files under .vim/settings
   * More than just vim plugins - great shell aliases, osx, and irb/pry tweaks to make you more productive.
 
 ## Screenshot
@@ -125,7 +125,6 @@ Make sure you follow the naming convention of `prompt_[name]_setup`
 touch ~/.zsh.prompts/prompt_mytheme_setup
 ```
 
-Check out ~/.yadr/zsh/prezto-themes/prompt_skwp_setup for an example of how to write a prompt.
 See also the [Prezto](https://github.com/sorin-ionescu/prezto) project for more info on themes.
 
 ### Customizing ZSH & Picking a theme
@@ -135,10 +134,10 @@ In these directories, you can place files to customize things that load before a
 
 For example, to override the theme, you can do something like this:
 ```
-echo "prompt skwp" > ~/.zsh.after/prompt.zsh
+echo "prompt yourprompt" > ~/.zsh.after/prompt.zsh
 ```
 
-Next time you load your shell, this file will be read and your prompt will be the skwp prompt. Use `prompt -l` to see the available prompts.
+Next time you load your shell, this file will be read and your prompt will be the youprompt prompt. Use `prompt -l` to see the available prompts.
 
 ### Included ZSH Customizations
 
@@ -193,7 +192,7 @@ if you don't like them, or make your own.
 
 ### Vim Keymaps
 
-The files in vim/plugin/settings are customizations stored on a per-plugin
+The files in vim/settings are customizations stored on a per-plugin
 basis. The main keymap is available in skwp-keymap.vim, but some of the vim
 files contain key mappings as well (TODO: probably will move them out to skwp-keymap.vim)
 
@@ -221,7 +220,7 @@ If you omit the key combo, you'll get a list of all the maps. You can do the sam
 
 #### Surround.vim customizations
 
- * in plugin/settings/surround.vim (this folder contains all my customizations)
+ * in settings/surround.vim (this folder contains all my customizations)
  * the `#` key now surrounds with `#{}`, so `ysaw#` (surround around word) `#{foo}`
  * `=` surrounds with `<%= erb tag %>`; `-` for `<% this %>`. So, `yss=` or `yss-` to wrap code
 
@@ -282,7 +281,6 @@ If you omit the key combo, you'll get a list of all the maps. You can do the sam
 
  * `Ctrl-h,l,j,k` - to move left, right, down, up between windows
  * `Q` - Intelligent Window Killer. Close window `wincmd c` if there are multiple windows to same buffer, or kill the buffer `bwipeout` if this is the last window into it.
- * Cmd-Arrow keys - resize windows (up/down for vertical, left=make smaller horizontally, right=make bigger horizontally)
 
 #### Splits
 
@@ -324,7 +322,7 @@ If you omit the key combo, you'll get a list of all the maps. You can do the sam
 
 #### Ruby Debugger
 
- * Visual ruby debugger included. All keys remapped to `,d(something)` such as `,dn` for Debugger Next or `,dv` for Debugger Variables. Use `:help ruby-debugger` for more info, but keep in mind the new key maps (see vim/plugin/settings/vim-ruby-debugger.vim)
+ * Visual ruby debugger included. All keys remapped to `,d(something)` such as `,dn` for Debugger Next or `,dv` for Debugger Variables. Use `:help ruby-debugger` for more info, but keep in mind the new key maps (see vim/settings/vim-ruby-debugger.vim)
 
 #### Comments
 
@@ -363,7 +361,6 @@ If you omit the key combo, you'll get a list of all the maps. You can do the sam
 #### Coding
 
  * tComment - gcc to comment a line, gcp to comment blocks, nuff said
- * sparkup - div.foo#bar - hit `ctrl-e`, expands into `<div class="foo" id="bar"/>`, and that's just the beginning
  * rails.vim - syntax highlighting, gf (goto file) enhancements, and lots more. should be required for any rails dev
  * rake.vim - like rails.vim but for non-rails projects. makes `:Rtags` and other commands just work
  * ruby.vim - lots of general enhancements for ruby dev
@@ -412,6 +409,7 @@ If you omit the key combo, you'll get a list of all the maps. You can do the sam
  * change-inside-surroundings - change content inside delimiters like quotes/brackets
  * Specky - used for color highlighting rspec correctly even if specs live outside of spec/ (rails.vim doesn't handle this)
  * Ag - use :Ag to search across multiple files. Faster than Grep and Ack.
+ * vim-session: use `:SaveSession` and `:OpenSession` to come back to your saved window layout
 
 #### General enhancements that don't add new commands
 
@@ -470,7 +468,6 @@ These hacks are Lion-centric. May not work for other OS'es. My favorite mods inc
  * NValt - Notational Velocity alternative fork - http://brettterpstra.com/project/nvalt/ - syncs with SimpleNote
  * Vimium for Chrome - vim style browsing. The `f` to type the two char alias of any link is worth it.
  * QuickCursor - gives you Apple-Shift-E to edit any OSX text field in vim.
- * brew install autojump - will track your commonly used directories and let you jump there. With the zsh plugin you can just type `j [dirspec]`, a few letters of the dir you want to go to.
 
 
 ### Credits

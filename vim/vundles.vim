@@ -32,16 +32,15 @@ Bundle "ck3g/vim-change-hash-syntax"
 " Other languages
 Bundle "briancollins/vim-jst"
 Bundle "pangloss/vim-javascript"
+Bundle "rodjek/vim-puppet"
 
 " Html, Xml, Css, Markdown...
-Bundle "aaronjensen/vim-sass-status.git"
 Bundle "claco/jasmine.vim"
 Bundle "digitaltoad/vim-jade.git"
 Bundle "groenewege/vim-less.git"
 Bundle "itspriddle/vim-jquery.git"
 Bundle "jtratner/vim-flavored-markdown.git"
 Bundle "kchmck/vim-coffee-script"
-Bundle "kogakure/vim-sparkup.git"
 Bundle "nelstrom/vim-markdown-preview"
 Bundle "skwp/vim-html-escape"
 Bundle "slim-template/vim-slim.git"
@@ -100,6 +99,10 @@ Bundle "vim-scripts/AutoTag.git"
 Bundle "vim-scripts/lastpos.vim"
 Bundle "vim-scripts/sudo.vim"
 Bundle "xsunsmile/showmarks.git"
+Bundle "terryma/vim-multiple-cursors"
+"vim-misc is required for vim-session
+Bundle "xolox/vim-misc"
+Bundle "xolox/vim-session"
 
 " Text objects
 Bundle "austintaylor/vim-indentobject"
@@ -118,13 +121,9 @@ Bundle "vim-scripts/argtextobj.vim"
 " Cosmetics, color scheme, Powerline...
 Bundle "chrisbra/color_highlight.git"
 Bundle "skwp/vim-colors-solarized"
-Bundle "skwp/vim-powerline.git"
+Bundle "bling/vim-airline.git"
 Bundle "vim-scripts/TagHighlight.git"
-Bundle "itspriddle/vim-jquery.git"
-Bundle "slim-template/vim-slim.git"
 Bundle "bogado/file-line.git"
-Bundle "tpope/vim-rvm.git"
-Bundle "nelstrom/vim-visual-star-search"
 
 " Customization
 Bundle "vim-scripts/nginx.vim"
