@@ -140,11 +140,10 @@ Bundle "bogado/file-line.git"
 Bundle "jby/tmux.vim.git"
 Bundle "morhetz/gruvbox"
 
-
-
 " Customization
 Bundle "vim-scripts/nginx.vim"
 " Bundle "vim-scripts/groovy.vim"
+Bundle 'bling/vim-airline.git'
 
 " Customization
 " The plugins listed in ~/.vim/.vundles.local will be added here to

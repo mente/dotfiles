@@ -66,3 +66,6 @@ hi! EasyMotionTarget guifg=#4CE660 gui=bold
 
 " Make sure this file loads itself on top of any other color settings
 au VimEnter * so ~/.vim/settings/solarized.vim
+
+" Required for vim-airline
+let g:airline_theme="solarized"
