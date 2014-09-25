@@ -90,7 +90,6 @@ Bundle "nelstrom/vim-visual-star-search"
 " General vim improvements
 Bundle "chrisbra/NrrwRgn"
 Bundle "MarcWeber/vim-addon-mw-utils.git"
-Bundle "bogado/file-line.git"
 Bundle "majutsushi/tagbar.git"
 Bundle "mattn/webapi-vim.git"
 Bundle "scrooloose/syntastic.git"
@@ -109,7 +108,6 @@ Bundle "vim-scripts/AutoTag.git"
 Bundle "vim-scripts/lastpos.vim"
 Bundle "vim-scripts/sudo.vim"
 Bundle "xsunsmile/showmarks.git"
-Bundle "terryma/vim-multiple-cursors"
 
 " Session Management
 "vim-misc is required for vim-session
@@ -144,6 +142,10 @@ Bundle "morhetz/gruvbox"
 Bundle "vim-scripts/nginx.vim"
 " Bundle "vim-scripts/groovy.vim"
 Bundle 'bling/vim-airline.git'
+Bundle 'rizzatti/dash.vim'
+Bundle "Align"
+Bundle "smintz/vim-sqlutil"
+
 
 " Customization
 " The plugins listed in ~/.vim/.vundles.local will be added here to
