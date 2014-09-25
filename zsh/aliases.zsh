@@ -165,6 +165,6 @@ alias mkdir='mkdir -p'
 alias vi='vim'
 alias psg="ps aux | egrep -i --color"
 alias psm='open -a PhpStorm ./'
-alias stt='open -a Sublime\ Text\ 2 ./'
+alias stt='open -a Sublime\ Text ./'
 alias grd='gradle --daemon'
 alias idea='open -a IntelliJ\ IDEA\ 12'
