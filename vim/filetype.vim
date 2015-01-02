@@ -3,3 +3,5 @@ au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfil
 " groovy.vim config
 au BufNewFile,BufRead *.groovy  setf groovy
 au BufNewFile,BufRead *.gradle setf groovy
+" CocoaPods
+au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
