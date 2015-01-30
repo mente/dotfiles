@@ -5,3 +5,5 @@ if [ -d $HOME/.zsh.after/ ]; then
   fi
 fi
 export MYSQL_PS1="\h:\_(\U)\_[\d]>"
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
