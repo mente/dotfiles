@@ -35,6 +35,7 @@ Bundle "briancollins/vim-jst"
 Bundle "pangloss/vim-javascript"
 Bundle "rodjek/vim-puppet"
 Bundle "othree/javascript-libraries-syntax.vim"
+Bundle 'Keithbsmiley/swift.vim'
 
 " Html, Xml, Css, Markdown...
 Bundle "claco/jasmine.vim"
@@ -108,6 +109,7 @@ Bundle "vim-scripts/AutoTag.git"
 Bundle "vim-scripts/lastpos.vim"
 Bundle "vim-scripts/sudo.vim"
 Bundle "xsunsmile/showmarks.git"
+Bundle 'mileszs/ack.vim'
 
 " Session Management
 "vim-misc is required for vim-session
