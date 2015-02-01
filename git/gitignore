@@ -34,3 +34,7 @@ Session.vim
 #Sublime Text 2 sftp plugin config
 sftp-config.json
 .idea
+
+Vagrantfile
+vagrant.json
+.vagrant
