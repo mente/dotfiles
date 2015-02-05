@@ -7,3 +7,7 @@ fi
 export MYSQL_PS1="\h:\_(\U)\_[\d]>"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+LC_ALL=en_US.UTF-8
+export LC_ALL
+LANG=en_US.UTF-8
+export LANG
