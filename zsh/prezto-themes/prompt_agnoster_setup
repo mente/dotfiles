@@ -1,26 +1,61 @@
+# vim:ft=zsh ts=2 sw=2 sts=2
 #
-# Agnoster theme from https://gist.github.com/3712874
+# agnoster's Theme - https://gist.github.com/3712874
+# A Powerline-inspired theme for ZSH
 #
-# Authors:
-#   agnoster (original)
-#	digitalformula (modified for compatibility with Prezto - https://github.com/sorin-ionescu/prezto)
+# # README
 #
-# Original agnoster theme was written for Oh My Zsh - https://github.com/robbyrussell/oh-my-zsh
-# This modified version requires git.zsh from Oh My Zsh - put in ~/.yadr/zsh for automatic load
+# In order for this theme to render correctly, you will need a
+# [Powerline-patched font](https://gist.github.com/1595572).
+#
+# In addition, I recommend the
+# [Solarized theme](https://github.com/altercation/solarized/) and, if you're
+# using it on Mac OS X, [iTerm 2](http://www.iterm2.com/) over Terminal.app -
+# it has significantly better color fidelity.
+#
+# # Goals
+#
+# The aim of this theme is to only show you *relevant* information. Like most
+# prompts, it will only show git information when in a git working directory.
+# However, it goes a step further: everything from the current user and
+# hostname to whether the last call exited with an error to whether background
+# jobs are running in this shell will all be displayed automatically when
+# appropriate.
 
-# Load dependencies.
-pmodload 'helper'
+### Segment drawing
+# A few utility functions to make it easy and re-usable to draw segmented prompts
 
-function prompt_agnoster_precmd {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
+CURRENT_BG='NONE'
+SEGMENT_SEPARATOR='⮀'
 
-  if (( $+functions[git-info] )); then
-    git-info
+# Customizations
+
+# Checks if working tree is dirty
+# From robbyrussell/oh-my-zsh
+parse_git_dirty() {
+  local SUBMODULE_SYNTAX=''
+  local GIT_STATUS=''
+  local CLEAN_MESSAGE='nothing to commit (working directory clean)'
+  if [[ "$(command git config --get oh-my-zsh.hide-status)" != "1" ]]; then
+    if [[ $POST_1_7_2_GIT -gt 0 ]]; then
+          SUBMODULE_SYNTAX="--ignore-submodules=dirty"
+    fi
+    if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
+        GIT_STATUS=$(command git status -s ${SUBMODULE_SYNTAX} -uno 2> /dev/null | tail -n1)
+    else
+        GIT_STATUS=$(command git status -s ${SUBMODULE_SYNTAX} 2> /dev/null | tail -n1)
+    fi
+    if [[ -n $GIT_STATUS ]]; then
+      echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+    else
+      echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+    fi
+  else
+    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
   fi
 }
 
-# Begin a segment
+>>>>>>> upstream/master
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
 prompt_segment() {
@@ -76,12 +111,8 @@ prompt_git() {
 }
 
 # Dir: current working directory
-prompt_dir_old() {
-  prompt_segment blue black '%~'
-}
-
 prompt_dir() {
-  prompt_segment blue black `get_short_path`
+  prompt_segment blue black '%~'
 }
 
 # Status:
@@ -95,32 +126,10 @@ prompt_status() {
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
-  [[ -n "$symbols" ]] && prompt_segment black black "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
-### current time
-### function added by digitalformula
-prompt_time() {
-  prompt_segment white black "`date +%H:%M:%S`"
-}
-
-### current hostname
-### function added by digitalformula
-prompt_hostname() {
-  hostname=`hostname`
-  prompt_segment green black "$hostname"
-}
-
-## Main prompt (Old version, includes currect directory)
-build_prompt_old() {
-  RETVAL=$?
-  prompt_status
-  prompt_context
-  prompt_dir
-  prompt_git
-  prompt_end
-}
-
+## Main prompt
 build_prompt() {
   RETVAL=$?
   prompt_status
@@ -130,73 +139,4 @@ build_prompt() {
   prompt_end
 }
 
-function prompt_agnoster_setup {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
-  prompt_opts=(cr percent subst)
-
-  # Load required functions.
-  autoload -Uz add-zsh-hook
-
-  # Add hook for calling git-info before each command.
-  add-zsh-hook precmd prompt_agnoster_precmd
-
-  zstyle ':prezto:module:editor' completing '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:keymap:primary' overwrite ' %F{red}♺%f'
-  zstyle ':prezto:module:editor:keymap' primary ' %B%F{red}❯%F{yellow}❯%F{green}❯%f%b'
-  zstyle ':prezto:module:editor:keymap' alternate ' %B%F{green}❮%F{yellow}❮%F{red}❮%f%b'
-  zstyle ':prezto:module:git' action ':%%B%F{yellow}%s%f%%b'
-  zstyle ':prezto:module:git' added ' %%B%F{green}✚%f%%b'
-  zstyle ':prezto:module:git' ahead ' %%B%F{yellow}⬆%f%%b'
-  zstyle ':prezto:module:git' behind ' %%B%F{yellow}⬇%f%%b'
-  zstyle ':prezto:module:git' branch ':%F{green}%b%f'
-  zstyle ':prezto:module:git' commit ':%F{green}%.7c%f'
-  zstyle ':prezto:module:git' deleted ' %%B%F{red}✖%f%%b'
-  zstyle ':prezto:module:git' modified ' %%B%F{blue}✱%f%%b'
-  zstyle ':prezto:module:git' position ':%F{green}%p%f'
-  zstyle ':prezto:module:git' renamed ' %%B%F{magenta}➜%f%%b'
-  zstyle ':prezto:module:git' stashed ' %%B%F{cyan}✭%f%%b'
-  zstyle ':prezto:module:git' unmerged ' %%B%F{yellow}═%f%%b'
-  zstyle ':prezto:module:git' untracked ' %%B%F{white}◼%f%%b'
-  zstyle ':prezto:module:git' info \
-    'prompt'  ' %F{blue}git%f$(coalesce "%b" "%p" "%c")%s' \
-    'rprompt' '%A%B%S%a%d%m%r%U%u'
-    
-# Original theme's comments left intact:
-
-# vim:ft=zsh ts=2 sw=2 sts=2
-#
-# agnoster's Theme - https://gist.github.com/3712874
-# A Powerline-inspired theme for ZSH
-#
-# # README
-#
-# In order for this theme to render correctly, you will need a
-# [Powerline-patched font](https://gist.github.com/1595572).
-#
-# In addition, I recommend the
-# [Solarized theme](https://github.com/altercation/solarized/) and, if you're
-# using it on Mac OS X, [iTerm 2](http://www.iterm2.com/) over Terminal.app -
-# it has significantly better color fidelity.
-#
-# # Goals
-#
-# The aim of this theme is to only show you *relevant* information. Like most
-# prompts, it will only show git information when in a git working directory.
-# However, it goes a step further: everything from the current user and
-# hostname to whether the last call exited with an error to whether background
-# jobs are running in this shell will all be displayed automatically when
-# appropriate.
-
-### Segment drawing
-# A few utility functions to make it easy and re-usable to draw segmented prompts
-
-CURRENT_BG='NONE'
-SEGMENT_SEPARATOR='⮀'
-
 PROMPT='%{%f%b%k%}$(build_prompt) '
-
-}
-
-prompt_agnoster_setup "$@"
-
