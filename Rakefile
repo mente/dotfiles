@@ -24,7 +24,7 @@ task :install => [:submodule_init, :submodules] do
     install_files(Dir.glob('{vim,vimrc}'))
     Rake::Task["install_vundle"].execute
   end
-  file_operation(Dir.glob('screenrc')) if want_to_install?('screen configuration')
+  install_files(Dir.glob('screenrc')) if want_to_install?('screen configuration')
 
   Rake::Task["install_prezto"].execute
 
