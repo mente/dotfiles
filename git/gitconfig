@@ -123,7 +123,9 @@
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
-[include]
-  path = .gitconfig.user
 [diff "localizablestrings"]
   textconv = "iconv -f utf-16le -t utf-8"
+[include]
+  path = .gitconfig.user
+[remote "origin"]
+	prune = true
